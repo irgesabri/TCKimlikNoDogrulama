@@ -16,5 +16,19 @@ namespace TcKimlikNoDogrulama
         {
             InitializeComponent();
         }
+
+        private void btnKontrol_Click(object sender, EventArgs e)
+        {
+            TCKimlikNoDogrulamaServisi.KPSPublic kps = new TCKimlikNoDogrulamaServisi.KPSPublic();
+           bool sonuc= kps.TCKimlikNoDogrula(long.Parse(txtTc.Text), txtAd.Text.ToUpper(), txtSoyad.Text.ToUpper(), int.Parse(txtDogumYili.Text));
+            if (sonuc)
+            {
+                MessageBox.Show("TC Kimlik No Doğrulandı");
+            }
+            else
+            {
+                MessageBox.Show("TC Kimlik No Doğrulanmadı");
+            }
+        }
     }
 }
